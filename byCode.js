@@ -25,6 +25,9 @@ function setup() {
     var streets = {};
     for (var i = 0; i < complaints.data.length; i++) {
         var cCode = complaints.data[i][16];
+
+        
+
         streets[cCode] = 1 + (streets[cCode] || 0);
     }
 
@@ -36,6 +39,11 @@ function setup() {
 function draw() {
 
     code = sortedStreets[whichStreet][0];
+    
+    if (complaintCodes[code]){
+
+
+    var complaints = complaintCodes[code]["category"];
 
     background("#E6EBE0");
 
@@ -50,8 +58,11 @@ function draw() {
     fill("#5CA4A9");
     text("complaints about",windowWidth/2,200);
 
+    
     fill("#ED6A5A");
-    text(code,0,260,windowWidth, 250);
+    text(complaints,0,260,windowWidth, 250);
+
+}
 
 }
 

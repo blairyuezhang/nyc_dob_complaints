@@ -22,7 +22,8 @@ function setup() {
     var streets = {};
     for (var i = 0; i < complaints.data.length; i++) {
         var streetName = complaints.data[i][12];
-        streets[streetName] = 1 + (streets[streetName] || 0);
+            streetName = streetName.trim();
+        streets[streetName] = 1 + (streets[streetName] || 0);     
     }
 
     //sort them
@@ -46,6 +47,21 @@ function draw() {
 
     fill("#ED6A5A");
     text(sortedStreets[whichStreet][0],windowWidth/2,windowHeight/2+160);
+
+
+
+        if (sortedStreets[whichStreet][0].indexOf("STREET") > -1){
+        
+        for (var y = 0; y < windowHeight; y = y+20){
+                    line(0, y, windowWidth, y);
+            } 
+        
+        }else{
+                for (var x = 0; x < windowWidth; x = x+20){
+                line(x, 0, x, windowHeight);
+                }
+                   
+            }
    
 }
 
