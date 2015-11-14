@@ -38,6 +38,8 @@ function setup() {
 
 function draw() {
 
+    textSize(50);
+
     code = sortedStreets[whichStreet][0];
     
     if (complaintCodes[code]){
@@ -45,22 +47,69 @@ function draw() {
 
     var complaints = complaintCodes[code]["category"];
 
-    background("#E6EBE0");
+    if (complaintCodes[code]["priority"].indexOf("A") > -1){
 
-    textSize(50);
+        background("red");
+        
+        fill("white");
+        text(sortedStreets[whichStreet][1],windowWidth/2,150);
+        
+        fill("white");
+        text(complaints,0,260,windowWidth, 250);
+
+
+        fill("white");
+        text("Priority Level A",windowWidth/2, 500);
+    }else if (complaintCodes[code]["priority"].indexOf("B") > -1){
+        background("orange");
+        
+        fill("white");
+        text(sortedStreets[whichStreet][1],windowWidth/2,150);
+        
+        fill("white");
+        text(complaints,0,260,windowWidth, 250);
+
+        fill("white");
+        text("Priority Level B",windowWidth/2, 500);
+    }else if (complaintCodes[code]["priority"].indexOf("C") > -1){
+        background("yellow");
+
+        fill("black");
+        text(sortedStreets[whichStreet][1],windowWidth/2,150);
+        
+        fill("black");
+        text(complaints,0,260,windowWidth, 250);
+
+        fill("black");
+        text("Priority Level C",windowWidth/2, 500);
+    }else if (complaintCodes[code]["priority"].indexOf("D") > -1){
+        background("green");
+       
+        fill("black");
+        text(sortedStreets[whichStreet][1],windowWidth/2,150);
+       
+        fill("black");
+        text(complaints,0,260,windowWidth, 250);
+
+        fill("black");
+        text("Priority Level D",windowWidth/2, 500);
+    }
+   
+
+    
     
     fill("#5CA4A9");
     text("There have been",windowWidth/2,100);
 
-    fill("#ED6A5A");
-    text(sortedStreets[whichStreet][1],windowWidth/2,150);
+    
 
     fill("#5CA4A9");
     text("complaints about",windowWidth/2,200);
 
+
+
     
-    fill("#ED6A5A");
-    text(complaints,0,260,windowWidth, 250);
+    
 
 }
 
